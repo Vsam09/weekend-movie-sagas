@@ -16,6 +16,26 @@ router.get('/', (req, res) => {
 
 });
 
+router.get('/details/:id', (req, res) => {
+  const movieId = req.params.id;
+  const query = `SELECT *
+  FROM "movies_genres"
+  JOIN "movies"
+    ON "movie_id" = "movies"."id"
+  JOIN "genres"
+    ON "genre_id" = "genres"."id"
+  WHERE "movies"."id" = $1`;
+
+    pool.query(query, [movieId])
+    .then(result => {
+      console.log('result', result)
+      res.send(result.rows)
+    }).catch(error => {
+      console.log('Details GET error', error)
+      res.sendStatus(500)
+    });
+})
+
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie
