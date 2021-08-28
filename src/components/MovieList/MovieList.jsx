@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
-import {Link, useParams} from 'react-router-dom';
+// import {Link, useParams} from 'react-router-dom';
+import MovieListItem from '../MovieListItem/MovieListItem';
+
 function MovieList() {
 
     const dispatch = useDispatch();
@@ -15,17 +17,11 @@ function MovieList() {
         <main>
             <h1>MovieList</h1>
             <section className="movies">
-                {movies.map(movie => {
-                    return (
-                        <Link to={'/details/' + movie.id}>
-                        <div 
-                        key={movie.id} >
-                            <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title}/>
-                        </div>
-                        </Link>
-                    );
-                })}
+                {movies.map(movie => (
+                    <MovieListItem movie = {movie}/>
+                )
+
+                )}
             </section>
         </main>
 
