@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 router.get('/details/:id', (req, res) => {
   const movieId = req.params.id;
   const query = `SELECT 
-  "movies"."poster" as movieposter, "movies"."title", "genres"."name", "movies"."description" as moviedescription
+  "genres"."name", "movies"."poster", "movies"."title", "movies"."description"
   FROM "movies_genres"
   JOIN "movies"
     ON "movie_id" = "movies"."id"

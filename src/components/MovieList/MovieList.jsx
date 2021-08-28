@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 // import {Link, useParams} from 'react-router-dom';
 import MovieListItem from '../MovieListItem/MovieListItem';
-
 function MovieList() {
 
     const dispatch = useDispatch();
