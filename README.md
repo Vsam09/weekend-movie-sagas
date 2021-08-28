@@ -10,10 +10,10 @@ Your project description goes here. What problem did you solve? How did you solv
 [x] Create a details component
     [x]Upon clicking the poster, users should be brought
       to the /details page
-    [] Details should appear about the movie
-    [] Make a GET request via id to display that specific 
+    [x] Details should appear about the movie
+    [x] Make a GET request via id to display that specific 
        movie when clicked on
-    [] Create a back button which returns user to the home
+    [x] Create a back button which returns user to the home
        page.
 [] Create a component Add Movie page
 [] A Cancel button, which brings user back to home page

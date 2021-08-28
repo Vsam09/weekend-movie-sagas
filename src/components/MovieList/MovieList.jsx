@@ -18,9 +18,7 @@ function MovieList() {
             <section className="movies">
                 {movies.map(movie => (
                     <MovieListItem movie = {movie}/>
-                )
-
-                )}
+                ))}
             </section>
         </main>
 
