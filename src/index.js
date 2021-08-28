@@ -29,12 +29,13 @@ function* fetchAllMovies() {
     }
         
 }
+//Get details from database
 function* getDetails(action) {
     console.log('Action', action)
-    const id = action.payload;
+    // const id = action.payload;
 
     try{
-        const details = yield axios.get(`/api/movie/details/${id}`)
+        const details = yield axios.get(`/api/movie/details/${action.payload}`)
         console.log('details', details.data)
         yield put({ type: 'SET_DETAILS', payload: details.data });
     }
