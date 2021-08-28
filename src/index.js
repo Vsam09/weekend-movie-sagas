@@ -55,6 +55,7 @@ const movies = (state = [], action) => {
             return state;
     }
 }
+//Used to store movies description
 const details = (state = [], action) => {
     switch (action.type) {
         case 'SET_DETAILS':

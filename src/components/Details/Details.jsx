@@ -1,6 +1,7 @@
 import { useLocation, useParams } from "react-router-dom";
 import {useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import MovieList from "../MovieList/MovieList";
 
 function Details() {
     const dispatch = useDispatch();
@@ -21,7 +22,14 @@ function Details() {
     return(
         <>
         <h1>Details</h1>
-        {/* <h2>{movieId}</h2> */}
+        {details.map((movie, i) => (
+            <div key={i}>
+                {/* Movie:{movie.poster}  */}
+                Description:{movie.description} 
+                {/* Genres: {movie.genres}  */}
+
+            </div>
+        ))}
         </>
 
     )
