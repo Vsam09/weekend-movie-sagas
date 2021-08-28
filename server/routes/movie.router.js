@@ -19,13 +19,15 @@ router.get('/', (req, res) => {
 router.get('/details/:id', (req, res) => {
   const movieId = req.params.id;
   const query = `SELECT 
-  "genres"."name", "movies"."poster", "movies"."title", "movies"."description"
-  FROM "movies_genres"
-  JOIN "movies"
-    ON "movie_id" = "movies"."id"
+  ARRAY_AGG("genres"."name") "genres",
+  "movies"."poster" as poster, "movies"."title" as title, "movies"."description"as description
+  FROM "movies"
+  JOIN "movies_genres"
+	  ON "movies_genres"."movie_id" = "movies"."id"
   JOIN "genres"
-    ON "genre_id" = "genres"."id"
-  WHERE "movies"."id" = $1`;
+	  ON "genres"."id" = "movies_genres"."genre_id"
+  WHERE "movies"."id" = $1
+  GROUP BY "poster", "title", "description"`;
 
     pool.query(query, [movieId])
     .then(result => {
