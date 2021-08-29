@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import {useHistory} from 'react-router'
+import Card from '@material-ui/core/Card';
 
 function MovieListItem({movie}) {
 

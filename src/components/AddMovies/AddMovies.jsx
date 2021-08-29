@@ -14,7 +14,7 @@ function AddMovies() {
     const [genre, setGenre] = useState('');
 
 
-    const genreHandler = [{value: 0, label: "Select An Option"}, 
+    const selectGenres = [{value: 0, label: "Select An Option"}, 
     {value: 1, label: "Adventure"}, 
     {value: 2, label: "Animated"}, 
     {value: 3, label: "Biographical"}, 
@@ -77,7 +77,7 @@ return(
                         onChange={(event) => setUrl('./images/Samson-Malaysia-Poster.jpg')}/><br /><br />
 
                         <TextField select label="Genre" style={{width: "100%"}} SelectProps={{native: true}} variant="outlined" onChange={(event) => setGenre(event.target.value)}>
-                            {genreHandler.map((option) => (
+                            {selectGenres.map((option) => (
                                 <option key={option.value} value={option.value}>
                                     {option.label}
                                 </option>
