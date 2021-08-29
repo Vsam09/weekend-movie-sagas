@@ -16,7 +16,11 @@ Your project description goes here. What problem did you solve? How did you solv
     [x] Create a back button which returns user to the home
        page.
 [] Create a component Add Movie page
-[] A Cancel button, which brings user back to home page
+   [] Input field for Movie Title
+   [] Input field for Movie Image URL
+   [] Textarea for movie description
+   [] Drop down to select genres
+   [] A Cancel button, which brings user back to home page
 [] Save button that saves the add movie to the data base
    and brings user back to the home page with new movie added.
 
