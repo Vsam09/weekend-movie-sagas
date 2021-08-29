@@ -15,6 +15,7 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('GET_DETAILS', getDetails);
+    yield takeEvery('ADD_NEW_MOVIE', addNewMovie);
 }
 
 function* fetchAllMovies() {
@@ -43,7 +44,15 @@ function* getDetails(action) {
         console.log('getDetails error', error)
     }
 }
-
+function* addNewMovie(action) {
+    try{
+        yield axios.post('/api/movie', action.payload)
+        yield put ({ type: 'FETCH_MOVIES' });
+    }
+    catch(error) {
+        console.log('addNewMovie error', error)
+    }
+}
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
