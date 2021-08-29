@@ -25,7 +25,7 @@ function App() {
         <Route exact path="/addMovie">
           <AddMovies />
         </Route>
-        {/* Add Movie page */}
+        
       </Router>
     </div>
   );

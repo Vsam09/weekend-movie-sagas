@@ -14,7 +14,7 @@ function AddMovies() {
     const [genre, setGenre] = useState('');
 
 
-    const selectGenre = [{value: 0, label: "Select An Option"}, 
+    const genreHandler = [{value: 0, label: "Select An Option"}, 
     {value: 1, label: "Adventure"}, 
     {value: 2, label: "Animated"}, 
     {value: 3, label: "Biographical"}, 
@@ -33,7 +33,7 @@ function AddMovies() {
         history.push('/');
     };
 
-    const submit = () => { 
+    const submitButton = () => { 
         if (title == "" || description == "" || url == "" || genre == 0) { 
             alert('Please fill in all inputs');
             return false;
@@ -54,33 +54,48 @@ return(
         <form action="submit">
             <h2>Add Movie</h2>
             <div className="addform" style={{width: '550px'}}>
-                        <input 
-                        placeholder="Movie Title" 
+                        <TextField 
+                        label="Movie Title" 
+                        variant="outlined" 
+                        style={{width: "100%"}} 
                         value={title} 
-                        onChange={(event) => setTitle(event.target.value)}/>
+                        onChange={(event) => setTitle(event.target.value)}/><br /><br />
 
-                        <input 
-                        placeholder="Description" 
+                        <TextField textarea
+                        label="Movie Description" 
+                        style={{width: "100%"}} 
+                        multiline maxRows={6} 
+                        variant="outlined" 
                         value={description} 
-                        onChange={(event) => setDescription(event.target.value)}/>
+                        onChange={(event) => setDescription(event.target.value)}/><br /><br />
 
-                        <input 
-                        placeholder="Movie Poster URL" 
+                        <TextField 
+                        label="Movie Poster URL" 
+                        style={{width: "100%"}} 
+                        variant="outlined" 
                         value={url} 
-                        onChange={(event) => setUrl('./images/Samson-Malaysia-Poster.jpg')}/>
+                        onChange={(event) => setUrl('./images/Samson-Malaysia-Poster.jpg')}/><br /><br />
 
-                        <select 
-                        label="Genre" 
-                        onChange={(event) => setGenre(event.target.value)}>
-                            {selectGenre.map((option) => (
+                        <TextField select label="Genre" style={{width: "100%"}} SelectProps={{native: true}} variant="outlined" onChange={(event) => setGenre(event.target.value)}>
+                            {genreHandler.map((option) => (
                                 <option key={option.value} value={option.value}>
                                     {option.label}
                                 </option>
                             ))}
-                        </select>
-                        <Button variant="contained" color="primary" onClick={cancelButton}>Cancel</Button>
+                        </TextField><br /><br />
+
+                        <Button 
+                        variant="contained" 
+                        color="primary" 
+                        onClick={cancelButton}>Cancel</Button>
+
                         &nbsp;
-                        <Button variant="contained" color="primary" onClick={submit}>Submit</Button> 
+
+                        <Button 
+                        variant="contained" 
+                        color="primary" 
+                        onClick={submitButton}>Submit</Button> 
+
                     </div>
         </form>
     </section>
