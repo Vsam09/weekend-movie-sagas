@@ -4,6 +4,7 @@ import MovieList from '../MovieList/MovieList'
 import Details from '../Details/Details';
 import AddMovies from '../AddMovies/AddMovies';
 import {Link} from 'react-router-dom';
+
 function App() {
   return (
     <div className="App">
