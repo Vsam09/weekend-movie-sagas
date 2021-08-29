@@ -8,7 +8,6 @@ import TextField from '@material-ui/core/TextField';
 function AddMovies() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const genres = useSelector(store => store.genres);
     const [title, setTitle] = useState('');
     const [url, setUrl] = useState('');
     const [description, setDescription] = useState('');
@@ -34,7 +33,7 @@ function AddMovies() {
         history.push('/');
     };
 
-    const submitButton = () => { 
+    const submit = () => { 
         if (title == "" || description == "" || url == "" || genre == 0) { 
             alert('Please fill in all inputs');
             return false;
@@ -55,18 +54,33 @@ return(
         <form action="submit">
             <h2>Add Movie</h2>
             <div className="addform" style={{width: '550px'}}>
-            <input  placeholder="Movie Title"/>
-                <input placeholder="Poster Movie URL"/>
-                    
-                    <textarea placeholder="Add Movie Description"/>
+                        <input 
+                        placeholder="Movie Title" 
+                        value={title} 
+                        onChange={(event) => setTitle(event.target.value)}/>
+
+                        <input 
+                        placeholder="Description" 
+                        value={description} 
+                        onChange={(event) => setDescription(event.target.value)}/>
+
+                        <input 
+                        placeholder="Movie Poster URL" 
+                        value={url} 
+                        onChange={(event) => setUrl('./images/Samson-Malaysia-Poster.jpg')}/>
+
+                        <select 
+                        label="Genre" 
+                        onChange={(event) => setGenre(event.target.value)}>
                             {selectGenre.map((option) => (
                                 <option key={option.value} value={option.value}>
                                     {option.label}
                                 </option>
                             ))}
+                        </select>
                         <Button variant="contained" color="primary" onClick={cancelButton}>Cancel</Button>
                         &nbsp;
-                        <Button variant="contained" color="primary" onClick={submitButton}>Submit</Button> 
+                        <Button variant="contained" color="primary" onClick={submit}>Submit</Button> 
                     </div>
         </form>
     </section>
