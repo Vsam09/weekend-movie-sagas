@@ -1,10 +1,11 @@
 # Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Weekend-Movie-Saga
 
 ## Description
 
 Your project description goes here. What problem did you solve? How did you solve it?
+
+Create a details page that displays a movie description and genre(s) onClick of a movie poster from the MovieList/Home page. Including with the details page is a back button which lets the user(s) return back to the home page. Addition to the details page/component, create a link to be able to get to the add page to add a movie to the MovieList and save the inputs to the database upon submitting the movie. Along with the submit button, add a cancel button to cancel from the add page and be brought back to the home page.
 
 [x] Setup Movie poster to be able to click on
 [x] Create a details component
@@ -19,9 +20,9 @@ Your project description goes here. What problem did you solve? How did you solv
    [x] Input field for Movie Title
    [x] Input field for Movie Image URL
    [x] Textarea for movie description
-   [] Drop down to select genres
-   [] A Cancel button, which brings user back to home page
-[] Save button that saves the add movie to the data base
+   [x] Drop down to select genres
+   [x] A Cancel button, which brings user back to home page
+[x] Save button that saves the add movie to the data base
    and brings user back to the home page with new movie added.
 
    [] Style - More information in INSTRUCTIONS
